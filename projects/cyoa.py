@@ -14,7 +14,6 @@ def main() -> None:
     global player
     global points
     __name__ == "__main__"
-    repeat: int = 0
 
     greet()
     print(f"Alright, { player }, let's begin!")
@@ -25,21 +24,22 @@ def main() -> None:
     duke()
 
     # Game loop.
-    repeat: int = int(input(f"You have finished with { str(points) } points!\nPlease type '1' if you would like to restart by searching at Duke, '2' if you would like to start the entire game over, or any other number to quit the game."))
+    repeat: int = 0
+    repeat = int(input(f"You have finished with { str(points) } points!\nPlease type '1' if you would like to restart by searching at Duke, '2' if you would like to start the entire game over, or any other number to quit the game."))
     if repeat == 1:
         duke()
     elif repeat == 2:
         rep: int = 2
         while rep == 2:
             points = 0
-            print("Your points have been reset to 0.")
+            print("\n\nYour points have been reset to 0.")
             greet()
             print(f"Alright, { player }, let's begin!")
             story()
             points = custom(points)
             print(f"You now have { str(points) } points, and are determined to find { NAMED_CONSTANT }.")
             duke()
-            rep: int = int(input(f"You have finished with { str(points) } points!\nPlease type '1' if you would like to restart by searching at Duke, '2' if you would like to start the entire game over, or any other number to quit the game."))
+            rep = int(input(f"You have finished with { str(points) } points!\nPlease type '1' if you would like to restart by searching at Duke, '2' if you would like to start the entire game over, or any other number to quit the game."))
             if rep == 1:
                 duke()
             elif rep == 3:
@@ -146,6 +146,7 @@ def custom(n: int) -> int:
 
 
 def duke() -> None:
+    """Your adventure is continuing at Duke."""
     global points
     print("\n\nYou and Timmy catch the next bus to Durham, determined to bring Rameses back before the game starts.\nWhen you get to Duke, you are immediately confused about where to look for Rameses.")
     campus: int = int(input("Type '1' to check out the gardens first, and any other number to look in the basketball stadium."))
@@ -160,6 +161,7 @@ def duke() -> None:
 
 
 def gardens() -> None:
+    """The adventure continues at the Duke gardens."""
     global points
     print("You and Timmy follow the tracks as far as you can go. They end close to the north part of the gardens.")
     campus: int = int(input("Type '1' to check out the dining hall and any other number to search around the quad."))
