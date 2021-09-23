@@ -9,6 +9,8 @@ __author__ = "730490960"
 def all(haystack: list[int], needle: int) -> bool:
     """Returns true if all numbers in haystack match the indicated needle."""
     i: int = 0
+    if len(haystack) == 0:
+        return False
     while i < len(haystack):
         if haystack[i] != needle:
             return False
@@ -30,11 +32,13 @@ def is_equal(one: list[int], two: list[int]) -> bool:
 
 
 def max(largest: list[int]) -> int:
+    """Determines the largest number within a list."""
     if len(largest) == 0:
         raise ValueError("max() arg is an empty List")
     i: int = 0
-    max: int = 0
+    max: int = -9999999
     while i < len(largest):
         if largest[i] > max:
             max = largest[i]
+        i += 1
     return max
