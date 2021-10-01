@@ -9,9 +9,11 @@ def only_evens(a: list[int]) -> list[int]:
     """Creates a list of integers that is composed only of even numbers."""
     evens: list[int] = list()
     i: int = 0
+
     while i < len(a):
         if a[i] % 2 == 0:
             evens.append(a[i])
+        i += 1
     return evens 
 
 
@@ -19,24 +21,16 @@ def sub(b: list[int], c: int, d: int) -> list[int]:
     """Creates a subset of a list between two indices."""
     subset: list[int] = list()
 
-    subset = b
-
     if c < 0:
         c = 0
     if d > len(b):
-        d = len(b) - 1
+        d = len(b)
     
-    i: int = 0
+    i: int = c
 
-    if len(b) == 0:
-        return b
-
-    while i < c:
-        subset.pop(b[0])
+    while i < d:
+        subset.append(b[i])
         i += 1
-    
-    while (len(b) - i) > (d - i):
-        subset.pop(b[len(b - i) - 1])
 
     return subset
 
@@ -48,7 +42,7 @@ def concat(e: list[int], f: list[int]) -> list[int]:
     i: int = 0
 
     while i < len(f):
-        new.append(f[0])
+        new.append(f[i])
         i += 1
 
     return new
