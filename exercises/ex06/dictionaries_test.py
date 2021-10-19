@@ -16,9 +16,9 @@ def test_invert_short() -> None:
     assert invert({"hello": "bye", "thank you": "you're welcome"}) == ({"bye": "hello", "you're welcome": "thank you"})
 
 
-def test_invert_keyerror() -> None:
-    """Creates a dictionary that will guarantee a KeyError."""
-    assert invert({"tortilla": "chips", "lays": "chips"})
+def test_invert_one() -> None:
+    """Creates a dictionary with one key-value pair."""
+    assert invert({"tortilla": "chips"}) == ({"chips": "tortilla"})
 
 
 def test_favorite_color_basic() -> None:

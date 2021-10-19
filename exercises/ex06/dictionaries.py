@@ -7,11 +7,10 @@ __author__ = "730490960"
 
 def invert(orig: dict[str, str]) -> dict[str, str]:
     """This function inverts the keys and the values."""
-    inverted = dict[str, str]
-    inverted = dict()
+    inverted: dict[str, str] = {}
 
     for letter in orig:
-        if letter in inverted:
+        if orig[letter] in inverted:
             raise KeyError("This value has already been used as a key.")
         inverted[orig[letter]] = letter
         
