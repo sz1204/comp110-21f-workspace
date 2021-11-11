@@ -80,3 +80,19 @@ def count(values: list[str]) -> dict[str, int]:
             result[i] = 1
 
     return result
+
+
+def multiple_values(list_one: list[str], list_two: list[str]) -> dict[str, int]:
+    """Creates a dictionary that measures how many students who took AP are now CS majors at UNC."""
+    result: dict[str, int] = {"Yes": 0, "No": 0}
+    i: int = 0
+
+    while i < len(list_one):
+        if list_one[i] == "Yes":
+            if list_two[i] == "No":
+                result["No"] += 1
+            else:
+                result["Yes"] += 1
+        i += 1
+
+    return result
