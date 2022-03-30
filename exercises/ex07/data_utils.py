@@ -2,8 +2,6 @@
 
 __author__ = "730490960"
 
-# Define your functions below
-
 
 from csv import DictReader 
 
@@ -47,8 +45,9 @@ def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]:
 
 def head(column_table: dict[str, list[str]], n: int) -> dict[str, list[str]]:
     """Produces a new column-based table with only the first # rows of data for each column."""
+    # Establishing an empty dict that will be returned
     result: dict[str, list[str]] = {}
-
+    # If the user enters a number greater than how many columns are in the table, set it equal to the length of the column.
     if n > len(column_table):
         n = len(column_table)
 
@@ -57,27 +56,22 @@ def head(column_table: dict[str, list[str]], n: int) -> dict[str, list[str]]:
         for i in range(n):
             first_values.append(column_table.get(column, "")[i])
         result[column] = first_values
-    
     return result
 
 
 def select(column_table: dict[str, list[str]], names: list[str]) -> dict[str, list[str]]:
     """Selects columns that are requested to focus on them specifically."""
     result: dict[str, list[str]] = {}
-
     for name in names:
         result[name] = column_table.get(name, [''])
-
     return result
 
 
 def concat(dict1: dict[str, list[str]], dict2: dict[str, list[str]]) -> dict[str, list[str]]:
     """Combines tables of data to perform easier analysis."""
     result: dict[str, list[str]] = {}
-
     for x in dict1.keys():
         result[x] = dict1.get(x, [''])
-  
     for y in dict2.keys():
         if y in result.keys():
             exist = result.get(y)
@@ -85,18 +79,15 @@ def concat(dict1: dict[str, list[str]], dict2: dict[str, list[str]]) -> dict[str
             result[y] = exist
         else:
             result[y] = dict2.get(y, [''])
-
     return result
 
 
 def count(values: list[str]) -> dict[str, int]:
     """Creates a dictionary where each key is a unique value in the given list, adding on how many times the value appeared in the int list."""
     result: dict[str, int] = {}
-
     for i in values:
         if i in result:
             result[i] += 1
         else:
             result[i] = 1
-
     return result

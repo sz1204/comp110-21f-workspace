@@ -38,14 +38,14 @@ def test_sub_all() -> None:
 
 def test_concat_different() -> None:
     """Makes sure that two lists are concatenated into one, when there are two different lists."""
-    assert concat([1, 2, 3], [4, 5, 6, 7])
+    assert concat([1, 2, 3], [4, 5, 6, 7]) == [1, 2, 3, 4, 5, 6, 7]
 
 
 def test_concat_empty() -> None:
     """Makes sure that two lists are concatenated into one, when one list is empty."""
-    assert concat([0], [])
+    assert concat([0], []) == [0]
 
 
 def test_concat_same() -> None:
     """Makes sure that two lists are concatenated into one, when the lists are the same."""
-    assert concat([3, 4], [3, 4])
+    assert concat([3, 4], [3, 4]) == [3, 4, 3, 4]
