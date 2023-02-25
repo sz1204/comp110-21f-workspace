@@ -59,6 +59,19 @@ def head(column_table: dict[str, list[str]], n: int) -> dict[str, list[str]]:
     return result
 
 
+# def head(table: dict[str, list[str]], count: int) -> dict[str, list[str]]:
+#     """Shows the first few rows of data for each column."""
+#     result: dict[str, list[str]] = {}
+
+#     for column in table:
+#         values: list[str] = []
+#         for value in table[column]:
+#             if len(values) < count:
+#                 values.append(value)
+#         result[column] = values
+#     return result
+
+
 def select(column_table: dict[str, list[str]], names: list[str]) -> dict[str, list[str]]:
     """Selects columns that are requested to focus on them specifically."""
     result: dict[str, list[str]] = {}
@@ -80,6 +93,19 @@ def concat(dict1: dict[str, list[str]], dict2: dict[str, list[str]]) -> dict[str
         else:
             result[y] = dict2.get(y, [''])
     return result
+
+# def concat(firsttable: dict[str, list[str]], secondtable: dict[str, list[str]]) -> dict[str, list[str]]:
+#     """Produces a new table comprised of two combined tables."""
+#     result: dict[str, list[str]] = {}
+
+#     for column in firsttable:
+#         result[column] = firsttable[column]
+#     for column in secondtable:
+#         if column in result:
+#             result[column] += secondtable[column]
+#         else:
+#             result[column] = secondtable[column]
+#     return result
 
 
 def count(values: list[str]) -> dict[str, int]:

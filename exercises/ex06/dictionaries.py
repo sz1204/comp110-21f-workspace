@@ -9,7 +9,7 @@ def invert(orig: dict[str, str]) -> dict[str, str]:
     for letter in orig:
         if orig[letter] in inverted:
             raise KeyError("This value has already been used as a key.")
-        inverted[orig[letter]] == letter
+        inverted[orig[letter]] = letter
     return inverted
 
 
@@ -34,7 +34,7 @@ def favorite_color(table: dict[str, str]) -> str:
 
 def count(times: list[str]) -> dict[str, int]:
     """Puts a list of integer values into a dictionary."""
-    recount = dict[str, int]
+    recount = dict[str, int] = {}
     recount = dict()
     for number in times:
         if number in recount:
