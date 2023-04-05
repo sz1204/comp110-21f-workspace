@@ -34,7 +34,7 @@ def favorite_color(table: dict[str, str]) -> str:
 
 def count(times: list[str]) -> dict[str, int]:
     """Puts a list of integer values into a dictionary."""
-    recount = dict[str, int] = {}
+    recount: dict[str, int] = {}
     recount = dict()
     for number in times:
         if number in recount:
